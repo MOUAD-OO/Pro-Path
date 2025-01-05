@@ -1,5 +1,5 @@
-
 # Pro-Path
+
 
 **Pro-Path** is a revolutionary web platform designed to guide university students in defining their academic and professional trajectories. By leveraging data from previous cohorts, Pro-Path provides personalized recommendations based on student performance, interests, and aspirations, while also adapting to market needs. Additionally, the platform connects students with mentors for personalized guidance.
 
@@ -175,5 +175,9 @@ Students can:
 
 ## License
 
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
+this project is a school project made by
+Mouad Farhi 
+Sara kabil El hak 
+Meryem irghis 
+Emina Fradi 
+nouhalia Hanini
