@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Étudiant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_S.css') }}">
+</head>
+
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Bienvenue, {{ username }}!</h1>
+            <ul >
+            <li><a href="#footer">Contact</a></li>
+            <li><a href="/student_account">Account</a></li>
+            <li><a href="/logout">Log-Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    
+
+    <form action="/sudent/recommendation" method="POST">
+        <h2>Student Recommendation Form</h2>
+        <div style="display: flex;  gap: 20px;">
+
+            <!-- Column 1: Notes -->
+            <div style="flex: 1;" >
+                <h3>Notes</h3>
+                <label for="note_mathématique">Quel est votre note en Mathématiques?</label>
+                <input type="number" id="note_mathématique" name="note_mathématique" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_physique">Quel est votre note en Physique?</label>
+                <input type="number" id="note_physique" name="note_physique" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_mécanique">Quel est votre note en Mécanique?</label>
+                <input type="number" id="note_mécanique" name="note_mécanique" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_informatique">Quel est votre note en Informatique?</label>
+                <input type="number" id="note_informatique" name="note_informatique" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_sciencedentreprise">Quel est votre note en Science d'Entreprise?</label>
+                <input type="number" id="note_sciencedentreprise" name="note_sciencedentreprise" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_sciencehumaine">Quel est votre note en Science Humaine?</label>
+                <input type="number" id="note_sciencehumaine" name="note_sciencehumaine" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_adpl">Quel est votre note en ADPL?</label>
+                <input type="number" id="note_adpl" name="note_adpl" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_lbd">Quel est votre note en LBD?</label>
+                <input type="number" id="note_lbd" name="note_lbd" min="0" max="20" step="0.1" required><br>
+
+                <label for="note_langues">Quel est votre note en Langues?</label>
+                <input type="number" id="note_langues" name="note_langues" min="0" max="20" step="0.1" required><br>
+            </div>
+
+            <!-- Column 2: Interests -->
+            <div style="flex: 1;" class="radio-toolbar">
+                <h3>Centre d'Intérêt</h3>
+                <label class="radio-title">Electronique</label>
+                <input type="radio" id="electronique_yes" name="centre_d_interet_Electronique" value="1" required>
+                <label for="electronique_yes">Oui</label>
+                <input type="radio" id="electronique_no" name="centre_d_interet_Electronique" value="0" required>
+                <label for="electronique_no">Non</label><br>
+
+                <label class="radio-title">Energie</label>
+                <input type="radio" id="energie_yes" name="centre_d_interet_Energie" value="1" required>
+                <label for="energie_yes">Oui</label>
+                <input type="radio" id="energie_no" name="centre_d_interet_Energie" value="0" required>
+                <label for="energie_no">Non</label><br>
+
+                <label class="radio-title">Finance</label>
+                <input type="radio" id="finance_yes" name="centre_d_interet_Finance" value="1" required>
+                <label for="finance_yes">Oui</label>
+                <input type="radio" id="finance_no" name="centre_d_interet_Finance" value="0" required>
+                <label for="finance_no">Non</label><br>
+
+                <label class="radio-title">Informatique</label>
+                <input type="radio" id="informatique_yes" name="centre_d_interet_Informatique" value="1" required>
+                <label for="informatique_yes">Oui</label>
+                <input type="radio" id="informatique_no" name="centre_d_interet_Informatique" value="0" required>
+                <label for="informatique_no">Non</label><br>
+
+                <label class="radio-title">Management</label>
+                <input type="radio" id="management_yes" name="centre_d_interet_Management" value="1" required>
+                <label for="management_yes">Oui</label>
+                <input type="radio" id="management_no" name="centre_d_interet_Management" value="0" required>
+                <label for="management_no">Non</label><br>
+
+                <label class="radio-title">Mécanique</label>
+                <input type="radio" id="Mécanique_yes" name="centre_d_interet_Mécanique" value="1" required>
+                <label for="Mécanique_yes">Oui</label>
+                <input type="radio" id="Mécanique_no" name="centre_d_interet_Mécanique" value="0" required>
+                <label for="Mécanique_no">Non</label><br>
+
+                <label class="radio-title">Physique</label>
+                <input type="radio" id="Physique_yes" name="centre_d_interet_Physique" value="1" required>
+                <label for="Physique_yes">Oui</label>
+                <input type="radio" id="Physique_no" name="centre_d_interet_Physique" value="0" required>
+                <label for="Physique_no">Non</label><br>
+
+                <label class="radio-title">Technologie</label>
+                <input type="radio" id="technologie_yes" name="centre_d_interet_technologie" value="1" required>
+                <label for="technologie_yes">Oui</label>
+                <input type="radio" id="technologie_no" name="centre_d_interet_technologie" value="0" required>
+                <label for="technologie_no">Non</label><br>
+        
+
+            <!-- Column 3: Internships -->
+            
+                <h3>Stages 1A</h3>
+
+
+                <label class="radio-title">Électronique</label>
+                <input type="radio" id="stage_electronique_yes" name="stage1A_Electronique" value="1" required>
+                <label for="stage_electronique_yes">Oui</label>
+                <input type="radio" id="stage_electronique_no" name="stage1A_Electronique" value="0" required>
+                <label for="stage_electronique_no">Non</label><br>
+
+                <label class="radio-title">Energie</label>
+                <input type="radio" id="stage_energie_yes" name="stage1A_Energie" value="1" required>
+                <label for="stage_energie_yes">Oui</label>
+                <input type="radio" id="stage_energie_no" name="stage1A_Energie" value="0" required>
+                <label for="stage_energie_no">Non</label><br>
+
+                <label class="radio-title">Finance</label>
+                <input type="radio" id="stage_finance_yes" name="stage1A_Finance" value="1" required>
+                <label for="stage_finance_yes">Oui</label>
+                <input type="radio" id="stage_finance_no" name="stage1A_Finance" value="0" required>
+                <label for="stage_finance_no">Non</label><br>
+
+                <label class="radio-title">Informatique</label>
+                <input type="radio" id="stage_informatique_yes" name="stage1A_Informatique" value="1" required>
+                <label for="stage_informatique_yes">Oui</label>
+                <input type="radio" id="stage_informatique_no" name="stage1A_Informatique" value="0" required>
+                <label for="stage_informatique_no">Non</label><br>
+
+                <label class="radio-title">Management</label>
+                <input type="radio" id="stage_management_yes" name="stage1A_Management" value="1" required>
+                <label for="stage_management_yes">Oui</label>
+                <input type="radio" id="stage_management_no" name="stage1A_Management" value="0" required>
+                <label for="stage_management_no">Non</label><br>
+
+                <label class="radio-title">Mécanique</label>
+                <input type="radio" id="stage_Mécanique_yes" name="stage1A_Mécanique" value="1" required>
+                <label for="stage_Mécanique_yes">Oui</label>
+                <input type="radio" id="stage_Mécanique_no" name="stage1A_Mécanique" value="0" required>
+                <label for="stage_Mécanique_no">Non</label><br>
+
+                <label class="radio-title">Physique</label>
+                <input type="radio" id="stage_Physique_yes" name="stage1A_Physique" value="1" required>
+                <label for="stage_Physique_yes">Oui</label>
+                <input type="radio" id="stage_Physique_no" name="stage1A_Physique" value="0" required>
+                <label for="stage_Physique_no">Non</label><br>
+             
+
+                <label class="radio-title">Technologie</label>
+                <input type="radio" id="stage_technologie_yes" name="stage1A_technologie" value="1" required>
+                <label for="stage_technologie_yes">Oui</label>
+                <input type="radio" id="stage_technologie_no" name="stage1A_technologie" value="0" required>
+                <label for="stage_technologie_no">Non</label><br>
+            </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit Recommendation</button>
+        <div class="parcours">{{parcours}}</div>
+    </form>
+    
+    <div class="container">
+        <h2>Formulaire de demande de mentorat</h2>
+        <form method="POST" action="/student/mentoring">
+            <label for="sujet">Sujet de discussion:</label>
+            <input type="text" id="sujet" name="sujet" required>
+
+            <label for="date">Date (jj/mm/aa):</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="creneau">Créneau horaire:</label>
+            <input type="time" id="creneau" name="creneau" required>
+
+            <label for="mentor">Choisir un mentor:</label>
+
+            <select id="mentor" name="mentor">
+                {% for mentor in mentors_Data %}
+                <option value="{{mentor.Nom}}" name="mentor.Nom" placeholder="Choose a mentor">
+                    {{mentor.Nom}}
+                </option>
+                {% endfor %}
+            </select>
+
+            <button type="submit">Soumettre la demande</button>
+        </form>
+    </div>
+
+    <div class="container">
+        <h2>Liste des mentors</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Domaine</th>
+                    <th>Thèse</th>
+                    <th>Linked In</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for mentor in mentors_Data %}
+                <tr>
+                    <td>{{ mentor.Nom}}</td>
+                    <td>{{ mentor.Prénom }}</td>
+                    <td>{{ mentor.Domaine}}</td>
+                    <td>{{ mentor.These}}</td>
+                    <td><a  href="{{mentor.Lien_linkedin}}">Lien</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+<footer id="footer">
+    <div >
+      <div class="row">
+        <div class="Contact">
+          <h3>Contact Us</h3>
+          <p>
+            <strong>Address:</strong> 123 Main St, Anytown, USA<br>
+            <strong>Phone:</strong> (555) 555-1234<br>
+            <strong>Email:</strong> info@yourwebsite.com
+          </p>
+        </div>
+        <div class="Social">
+          <h3>Social Media</h3>
+          <ul class="social-links">
+            <li><a href="#">Facbook<i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#">X<i class="fab fa-twitter"></i></a></li>
+            <li><a href="#">Instagram<i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2023 Your Website. All rights reserved.</p>
+    </div>
+</footer>
+</html>

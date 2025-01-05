@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor Page - Pro-Path</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style_M.css') }}">
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <h1>Bienvenue, {{ username }}!</h1>
+            <ul >
+
+            <li><a href="#footer">Contact</a></li>
+
+            <li><a href="/logout">Log-Out</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="background-overlay">
+    <br><br>
+
+        <section class="requests-section">
+            
+            <div class="container">
+                <h2>Demande de mentoring</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Nom</th>
+                            <th>Prenom</th>
+                            <th>Email</th>
+                            <th>Sujet</th>
+                            <th>Date</th>
+                            <th>Créneau</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in table_data %}
+                        <tr>
+                            <td>{{ request.First_name }}</td>
+                            <td>{{ request.username}}</td>
+                            <td>{{ request.Email }}</td>
+                            <td>{{ request.Subject }}</td>
+                            <td>{{ request.date }}</td>
+                            <td>{{ request.time }}</td>
+                            <td>
+                                <form action="{{ url_for('handle_request') }}" method="post" style="display:inline;">
+                                    <input type="hidden" name="email" value="{{ request.Email }}">
+                                    <input type="hidden" name="action" value="accept">
+                                    <button type="submit" class="button accept-button">Accept</button>
+                                </form>
+                                <form action="{{ url_for('handle_request') }}" method="post" style="display:inline;">
+                                    <input type="hidden" name="email" value="{{ request.Email }}">
+                                    <input type="hidden" name="action" value="deny">
+                                    <button type="submit" class="button deny-button">Deny</button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                    
+                </table>
+            </div>
+        </section>
+
+        <div class="custom-text">
+            Merci de contacter les étudiants par leurs adresses e-mail pour confirmer les demandes.
+        </div>
+    </div>
+</body>
+<footer id="footer">
+    <div >
+      <div class="row">
+        <div class="Contact">
+          <h3>Contact Us</h3>
+          <p>
+            <strong>Address:</strong> 123 Main St, Anytown, USA<br>
+            <strong>Phone:</strong> (555) 555-1234<br>
+            <strong>Email:</strong> info@yourwebsite.com
+          </p>
+        </div>
+        <div class="Social">
+          <h3>Social Media</h3>
+          <ul class="social-links">
+            <li><a href="#">Facbook<i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#">X<i class="fab fa-twitter"></i></a></li>
+            <li><a href="#">Instagram<i class="fab fa-instagram"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="copyright">&copy; 2023 Your Website. All rights reserved.</p>
+    </div>
+</footer>
+</html>
