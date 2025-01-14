@@ -6,7 +6,7 @@ import smtplib
 from email.mime.text import MIMEText
 
 
-data=pd.read_excel("data_final.xlsx")
+data=pd.read_excel("data_final1.xlsx")
 data=data.drop(columns=['id_etudiant'])
 X=data.drop(columns=['electif_1','electif_2','electif_3','Parcours_S8','option_3A','PFE','stage_2A','Filiere_3A','majeur','cesure'])
 y=data.drop(columns=["stage1A", "centre d'interet",'note_mathématique', 'note_physique',
